@@ -48,9 +48,12 @@ export default class BaseClient {
 			`${this.config.authentication.email}:${this.config.authentication.apiToken}`
 		).toString("base64");
 
+		console.log(this.config.authentication.apiToken);
+
 		const method = requestConfig.method;
 		const url = new URL(`/wiki/${requestConfig.url}`, this.config.host);
 		let params = requestConfig.params;
+		console.log(url.toString())
 
 		if (!isArray(params)) {
 			params = removeUndefinedProperties(params || {});
